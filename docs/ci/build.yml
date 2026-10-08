@@ -1,0 +1,67 @@
+name: Build macOS app (development artifacts, not notarized release)
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install official dsh CLI (for the favicon + smoke)
+        run: npm install -g @deepseek-ai/dsh
+
+      - name: Build app
+        run: |
+          chmod +x buildApp.sh
+          DSH_SIGNING_MODE=adhoc zsh buildApp.sh | tail -1 > app_path.txt
+          cat app_path.txt
+
+      - name: Package zip
+        run: |
+          APP=$(cat app_path.txt)
+          ditto -c -k --keepParent "$APP" DSH-Launcher-macOS.zip
+          ls -lh DSH-Launcher-macOS.zip
+
+      - name: Package dmg (drag-to-Applications guide)
+        run: |
+          APP=$(cat app_path.txt)
+          STAGE="$PWD/.dmg-stage"
+          rm -rf "$STAGE" && mkdir -p "$STAGE"
+          cp -R "$APP" "$STAGE/"
+          ln -s /Applications "$STAGE/Applications"
+          hdiutil create -volname "DSH Launcher" -srcfolder "$STAGE" \
+            -ov -format UDZO DSH-Launcher-macOS.dmg
+          ls -lh DSH-Launcher-macOS.dmg
+
+      - name: Isolated regressions (no credentials or real sessions)
+        run: |
+          python3 -m unittest discover -s tests -v
+          swiftc Sources/LauncherUpdates.swift tests/updates/main.swift -o /tmp/update-tests
+          /tmp/update-tests
+          swiftc Sources/FeedbackCore.swift tests/feedback/main.swift -o /tmp/feedback-tests
+          /tmp/feedback-tests
+          swiftc Sources/AccountLogin.swift tests/account/main.swift -o /tmp/account-tests
+          /tmp/account-tests
+          swiftc Sources/RuntimeBootstrap.swift tests/runtime/main.swift -o /tmp/runtime-tests
+          /tmp/runtime-tests
+          APP=$(cat app_path.txt)
+          test -f "$APP/Contents/Resources/deepseekHarness.py"
+          codesign --verify --deep --strict "$APP"
+          xcrun vtool -show-build "$APP/Contents/MacOS/DeepSeekHarness"
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: DSH-Launcher-macOS
+          path: |
+            DSH-Launcher-macOS.zip
+            DSH-Launcher-macOS.dmg
