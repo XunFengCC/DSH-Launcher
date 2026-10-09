@@ -2,6 +2,11 @@
 
 This file records public product changes and the engineering reasons behind them. The first public source release is **DSH Launcher 1.0.0**; unpublished launcher version numbers and private workstation history are omitted. Upstream CLI versions are named where they define a compatibility boundary.
 
+## 2026-10-09 — DSH Launcher 1.0.1
+
+- Update the GitHub release query and trusted release-page path to `FengYinYH/DSH-Launcher`. After an owner rename, GitHub returns the new canonical page URL; the previous hard-coded path rejected that response as unpublished. The current release accepts the current owner directly, with no legacy alias fallback.
+- Set the public feedback recipient to `FengYinYH@icloud.com` in both release configuration and the default, and refresh download/support links and fixtures. Existing installations and upstream CLI data are unchanged; install this signed revision to use the corrected update checker.
+
 ## 2026-10-08 — DSH Launcher 1.0.0
 
 - Ship the controller and license inside the signed app, with an explicit macOS 14 deployment target. This makes a clean install independent of a maintainer’s source checkout and prevents the plist’s minimum-version declaration from drifting from the executable.

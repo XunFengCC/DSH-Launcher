@@ -36,7 +36,7 @@ enum LauncherUpdates {
     }
 
     static func check(current: String) -> LauncherUpdateCheck {
-        let url = URL(string: "https://api.github.com/repos/XunFengCC/DSH-Launcher/releases?per_page=20")!
+        let url = URL(string: "https://api.github.com/repos/FengYinYH/DSH-Launcher/releases?per_page=20")!
         var request = URLRequest(url: url)
         request.timeoutInterval = 10
         request.setValue("application/vnd.github+json", forHTTPHeaderField: "Accept")
@@ -72,7 +72,7 @@ enum LauncherUpdates {
         guard let latest = eligible.first, let tag = latest["tag_name"] as? String,
               let page = latest["html_url"] as? String, let pageURL = URL(string: page),
               pageURL.scheme == "https", pageURL.host == "github.com",
-              pageURL.path.hasPrefix("/XunFengCC/DSH-Launcher/releases/tag/") else { return .unpublished }
+              pageURL.path.hasPrefix("/FengYinYH/DSH-Launcher/releases/tag/") else { return .unpublished }
         return isNewer(tag, than: current) ? .available(tag, pageURL) : .current(tag)
     }
 }

@@ -16,7 +16,7 @@ import Foundation
 /// invents a URL, and the panel says so in one short user-facing line instead
 /// of offering a dead entry.
 struct FeedbackConfiguration {
-    static let defaultEmail = "fengyin.apps@icloud.com"
+    static let defaultEmail = "FengYinYH@icloud.com"
     static let defaultEmailName = "风吟"
 
     let email: String

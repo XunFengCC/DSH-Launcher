@@ -16,7 +16,7 @@ if CommandLine.arguments.count > 1 {
     let data = try Data(contentsOf: URL(fileURLWithPath: CommandLine.arguments[1]))
     let info = try PropertyListSerialization.propertyList(from: data, options: [], format: nil) as! [String: Any]
     let config = FeedbackConfiguration.resolve(environment: [:], settings: [:], infoPlist: info)
-    precondition(config.githubIssuesURL == URL(string: "https://github.com/XunFengCC/DSH-Launcher/issues/new"))
+    precondition(config.githubIssuesURL == URL(string: "https://github.com/FengYinYH/DSH-Launcher/issues/new"))
 }
 
 var failures: [String] = []
@@ -62,12 +62,12 @@ Authorization: Bearer ZXhhbXBsZS10b2tlbg==
 
 print("configuration")
 let defaultConfiguration = FeedbackConfiguration.resolve(infoPlist: [
-    "DSHFeedbackEmail": "fengyin.apps@icloud.com",
+    "DSHFeedbackEmail": "FengYinYH@icloud.com",
     "DSHFeedbackName": "风吟",
     "DSHFeedbackGitHubIssuesURL": "",
 ])
 check(defaultConfiguration.hasEmailChannel, "默认配置启用邮件入口")
-checkEqual(defaultConfiguration.email, "fengyin.apps@icloud.com", "默认收件人")
+checkEqual(defaultConfiguration.email, "FengYinYH@icloud.com", "默认收件人")
 checkEqual(defaultConfiguration.emailName, "风吟", "默认显示名")
 check(!defaultConfiguration.hasGitHubChannel, "未配置 GitHub 时渠道不可用")
 check(defaultConfiguration.githubIssuesURL == nil, "未配置时不产生任何 GitHub URL")
@@ -76,7 +76,7 @@ checkEqual(
     "GitHub 仓库开放后启用；现在可以用邮件反馈。",
     "未配置只说明仓库开放后启用、现在可走邮件"
 )
-check(defaultConfiguration.emailChannelNote.contains("fengyin.apps@icloud.com"), "面板显示收件地址")
+check(defaultConfiguration.emailChannelNote.contains("FengYinYH@icloud.com"), "面板显示收件地址")
 
 for note in [defaultConfiguration.emailChannelNote, defaultConfiguration.githubChannelNote] {
     check(!note.contains("DSH_") && !note.lowercased().contains("feedback_email"),
@@ -182,7 +182,7 @@ let draft = FeedbackChannels.mailDraft(
     configuration: defaultConfiguration, subject: subject, body: report, attachment: attachment
 )
 check(draft != nil, "可用邮件入口")
-checkEqual(draft?.recipient, "fengyin.apps@icloud.com", "草稿收件人正确")
+checkEqual(draft?.recipient, "FengYinYH@icloud.com", "草稿收件人正确")
 checkEqual(draft?.subject, subject, "草稿标题正确")
 checkEqual(draft?.body, report, "草稿正文是完整报告，不做 mailto 截断")
 checkEqual(draft?.attachment.path, attachment.path, "草稿要求附上完整报告文件")

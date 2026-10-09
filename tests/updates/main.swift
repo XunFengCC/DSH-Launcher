@@ -16,8 +16,8 @@ for (candidate, current, expected) in cases {
 }
 print("Launcher release comparisons: \(cases.count) passed")
 
-let preview: [String: Any] = ["draft": false, "prerelease": true, "tag_name": "v1.1.0-rc.1", "html_url": "https://github.com/XunFengCC/DSH-Launcher/releases/tag/v1.1.0-rc.1"]
-let stable: [String: Any] = ["draft": false, "prerelease": false, "tag_name": "v1.0.0", "html_url": "https://github.com/XunFengCC/DSH-Launcher/releases/tag/v1.0.0"]
+let preview: [String: Any] = ["draft": false, "prerelease": true, "tag_name": "v1.1.0-rc.1", "html_url": "https://github.com/FengYinYH/DSH-Launcher/releases/tag/v1.1.0-rc.1"]
+let stable: [String: Any] = ["draft": false, "prerelease": false, "tag_name": "v1.0.0", "html_url": "https://github.com/FengYinYH/DSH-Launcher/releases/tag/v1.0.0"]
 if case .current("v1.0.0") = LauncherUpdates.result(releases: [preview, stable], current: "1.0.0") {} else {
     preconditionFailure("Stable Apps must ignore preview releases")
 }

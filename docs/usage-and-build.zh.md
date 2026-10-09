@@ -68,7 +68,7 @@ DSH_NOTARY_PROFILE=profile-name zsh scripts/packageRelease.sh
 | `DSH_SETTINGS` | `~/.config/deepseek-harness-launcher/settings.json` | 设置文件路径 |
 | `DSH_FEEDBACK_EMAIL` | 发行配置提供 | 反馈收件邮箱（壳子） |
 | `DSH_FEEDBACK_NAME` | 发行配置提供 | 收件人显示名（壳子） |
-| `DSH_FEEDBACK_GITHUB_ISSUES_URL` | `https://github.com/XunFengCC/DSH-Launcher/issues/new` | 反馈用 GitHub 地址，须恰为 `https://github.com/<owner>/<repo>/issues/new`（壳子） |
+| `DSH_FEEDBACK_GITHUB_ISSUES_URL` | `https://github.com/FengYinYH/DSH-Launcher/issues/new` | 反馈用 GitHub 地址，须恰为 `https://github.com/<owner>/<repo>/issues/new`（壳子） |
 
 **settings.json**（`DSH_SETTINGS` 路径；控制器与壳子都会读）：可选 JSON
 对象，键名与上表 snake_case 一致，例如

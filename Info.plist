@@ -19,19 +19,19 @@
   <key>CFBundlePackageType</key>
   <string>APPL</string>
   <key>CFBundleShortVersionString</key>
-	<string>1.0.0</string>
+	<string>1.0.1</string>
   <key>DSHReleaseVersion</key>
-  <string>1.0.0</string>
+  <string>1.0.1</string>
   <key>DSHFeedbackEmail</key>
-  <string>fengyin.apps@icloud.com</string>
+  <string>FengYinYH@icloud.com</string>
   <key>DSHFeedbackName</key>
   <string>风吟</string>
-  <!-- 未配置即关闭 GitHub 渠道：本项目尚无确认公开仓库，也绝不猜测/
+  <!-- 未配置即关闭 GitHub 渠道；公开地址由本项目维护者配置，绝不猜测/
        使用上游 deepseek-ai 仓库；只接受恰为
        https://github.com/<owner>/<repo>/issues/new 的地址（换域名、http、
        端口、userinfo、query/fragment、多段路由一律拒绝）才启用。 -->
   <key>DSHFeedbackGitHubIssuesURL</key>
-  <string>https://github.com/XunFengCC/DSH-Launcher/issues/new</string>
+  <string>https://github.com/FengYinYH/DSH-Launcher/issues/new</string>
   <key>CFBundleVersion</key>
 	<string>12</string>
   <key>CFBundleURLTypes</key>

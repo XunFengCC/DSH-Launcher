@@ -69,7 +69,7 @@ All environment variables are optional. Settings use snake_case keys in the JSON
 | `DSH_SETTINGS` | `~/.config/deepseek-harness-launcher/settings.json` | Settings file |
 | `DSH_FEEDBACK_EMAIL` | Set by the release configuration | Feedback recipient |
 | `DSH_FEEDBACK_NAME` | Set by the release configuration | Recipient display name |
-| `DSH_FEEDBACK_GITHUB_ISSUES_URL` | `https://github.com/XunFengCC/DSH-Launcher/issues/new` | Public feedback issue page |
+| `DSH_FEEDBACK_GITHUB_ISSUES_URL` | `https://github.com/FengYinYH/DSH-Launcher/issues/new` | Public feedback issue page |
 
 For example, a settings file may contain:
 

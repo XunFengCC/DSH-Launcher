@@ -6,7 +6,7 @@
 
 **你继续用 CLI，只是多了一个可以点开的 App。**
 
-[下载 1.0.0](https://github.com/XunFengCC/DSH-Launcher/releases/tag/v1.0.0) · [English](README.en.md)
+[下载 1.0.1](https://github.com/FengYinYH/DSH-Launcher/releases/tag/v1.0.1) · [English](README.en.md)
 
 ## 为什么又做一个启动器？
 
@@ -28,7 +28,7 @@
 
 当前提供 **Apple Silicon Mac** 安装包，最低编译目标为 **macOS 14**。实际验证环境及兼容性边界见[发行验证](docs/diagnostics/20261004ReleasePreparation.md)。
 
-1. 从 [GitHub Release](https://github.com/XunFengCC/DSH-Launcher/releases/tag/v1.0.0) 下载 `DSH-Launcher-1.0.0-macOS-arm64.dmg`。
+1. 从 [GitHub Release](https://github.com/FengYinYH/DSH-Launcher/releases/tag/v1.0.1) 下载 `DSH-Launcher-1.0.1-macOS-arm64.dmg`。
 2. 打开 DMG，把 **DSH Launcher.app** 拖入 Applications，然后打开。
 3. 等待首次准备完成，在网页设置 API key，或从顶部 **DSH Launcher → 登录 DeepSeek 账号** 登录。
 
@@ -42,7 +42,7 @@ Swift、AppKit 和 WebKit 做原生窗口，Python 做我们自己写的控制�
 
 ## 问题和开发材料
 
-遇到问题可以用 App 的“问题反馈…”菜单，或到 [Issues](https://github.com/XunFengCC/DSH-Launcher/issues)。提交前请检查描述，不要附上密钥、凭据或私有会话内容。
+遇到问题可以用 App 的“问题反馈…”菜单，或到 [Issues](https://github.com/FengYinYH/DSH-Launcher/issues)。提交前请检查描述，不要附上密钥、凭据或私有会话内容。
 
 [配置、构建与恢复](docs/usage-and-build.zh.md) · [工程验证与排错记录](docs/diagnostics/20261004ReleasePreparation.md) · [变更记录](CHANGELOG.md)
 
